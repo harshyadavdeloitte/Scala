@@ -3,7 +3,6 @@ dataDf.printSchema
 // dataDf.show(1)
 dataDf.createOrReplaceTempView("dataview")
 
-data
 // assignment 1
 println("Input director Name")
 val dir = readLine
@@ -18,7 +17,7 @@ println("Input User Review")
 val reviewCount = readLine
 spark.sql(s"select title,reviews_from_users from dataview where language = 'English' AND reviews_from_users > ${reviewCount} ORDER BY reviews_from_users desc").show()
 
-// assignment 3
+// assignment 4
 println("Input Year")
-val reviewCount = readLine
-spark.sql(s"select title, from dataview where language = 'English' AND reviews_from_users > ${reviewCount} ORDER BY reviews_from_users desc").show()
+val country = readLine
+spark.sql(s"select title,duration,votes from dataview where country = '${country}' AND votes > avg_vote ORDER BY duration").show()
